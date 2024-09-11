@@ -1,0 +1,158 @@
+/* Set the base font family and apply 100% height to the body */
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    height: 100%;
+}
+
+/* Container for the stopwatch and layout settings */
+.wrapper {
+    width: 800px; 
+    margin: 30px auto;
+    color: $white; 
+    text-align: center; 
+}
+
+/* Styling headers with a specific font, size, and capitalization */
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 100; 
+    font-size: 2.6em; 
+    text-transform: uppercase; 
+}
+
+/* Styling for stopwatch time display (seconds and tens) */
+#seconds, #tens {
+    font-size: 2em; /* Larger font size for timer */
+}
+
+/* Layout and alignment for stopwatch buttons */
+.buttons {
+    width: 90%;
+    margin: 90px auto 0 auto;
+    display: flex; 
+    justify-content: space-around; 
+}
+
+/* Styling for individual buttons */
+.buttons button {
+    width: 120px; 
+    height: 45px; 
+    background-color: #205e94; 
+    color: #ffffff; 
+    border: none;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 18px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    outline: none; 
+}
+
+/* Unique background color for the third-to-last button ("Stop" button) */
+.buttons button:nth-last-child(3) {
+    background-color: #32d2a5; 
+}
+
+/* Unique background color for the second-to-last button ( "Reset" button) */
+.buttons button:nth-last-child(2) {
+    background-color: #d23332; 
+}
+
+/* Unique background color for the last button ("Lap" button) */
+.buttons button:nth-last-child(1) {
+    background-color: #20b380; 
+}
+
+/* Styling for the stopwatch time display wrapper */
+.wrapper p {
+    position: relative; 
+    display: inline-block; 
+    color: white;
+    z-index: 9999; 
+    font-size: 48px; 
+    margin-bottom: 120px; 
+}
+
+/* Adding a background circle behind the stopwatch display */
+.wrapper p::before {
+    content: ''; /* Empty content to create a visual effect */
+    position: absolute; /* Position the background relative to the timer */
+    width: 400px; 
+    height: 400px; 
+    background-color: lightseagreen; /* Circle color */
+    z-index: -1; /* Send circle behind the text */
+    border-radius: 50%; /* Make the background into a circle */
+    left: -40%; 
+    top: -118%;
+    animation-name: shine; /* Apply animation */
+    animation-duration: 3s; /* Duration of 3 seconds */
+    animation-iteration-count: infinite; /* Loop animation infinitely */
+}
+
+/* Keyframes for the shine animation applied to the decorative circle */
+@-webkit-keyframes shine {
+    from {
+        /* Starting shadow color and effect */
+        box-shadow: 0 0 5px lightseagreen, 0 0 5px #fff, 0 0 10px #f0f, 0 0 15px #0ff, 0 0 20px lightpink, 0 0 25px lightpink, 0 0 40px lightpink;
+    }
+    to {
+        /* Transition to new shadow color */
+        box-shadow: 0 0 5px lightseagreen, 0 0 5px lightcoral, 0 0 10px lightcoral, 0 0 15px lightcoral, 0 0 20px lightcoral, 0 0 25px lightcoral, 0 0 50px lightcoral;
+    }
+}
+
+/* Start of CSS for dark theme toggle switch */
+.toggle {
+    margin-right: 50px; /* Align the toggle switch to the right */
+}
+
+/* Hide the default checkbox for the toggle switch */
+.toggle-dark input[type='checkbox'] {
+    display: none;
+}
+
+/* Styling for the dark mode toggle button background */
+.toggle-dark label {
+    background-color: #555; /* Default toggle background color */
+    border: 2px solid #555; 
+    border-radius: 50px; /* Rounded rectangle for the toggle */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-block; 
+    position: relative;
+    transition: all ease-in-out 0.3s; /* Smooth transition for state changes */
+    width: 100px; 
+    height: 50px; 
+}
+
+/* Styling for the toggle button circle */
+.toggle-dark label::after {
+    background-color: rgb(224, 210, 210); 
+    border-radius: 50%; /* Make the button round */
+    content: ' '; /* Empty content to represent the toggle button */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-block;
+    position: absolute; /* Absolute positioning inside the toggle */
+    left: 2px; /* Initial position on the left */
+    top: 2px; /* Align at the top */
+    transition: all ease-in-out 0.3s; /* Smooth movement transition */
+    width: 42px; 
+    height: 42px; 
+}
+
+/* When checkbox is checked, change the background of the toggle */
+.toggle-dark input[type='checkbox']:checked ~ label {
+    background-color: #54ddcf; /* Light teal background when active */
+    border-color: #4cc0c2; /* Matching border color */
+}
+
+/* When the checkbox is checked, move the toggle button to the right */
+.toggle-dark input[type='checkbox']:checked ~ label::after {
+    background-color: #0a7a6d; /* Dark teal color for the button */
+    transform: translateX(50px); /* Move the circle to the right */
+}
+
+/* Dark theme applied to the body when the toggle is active */
+body.dark-theme {
+    background-color: grey;
+}
+/* End of CSS for dark theme toggle switch */
+

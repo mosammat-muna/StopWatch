@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript Simple Stopwatch</title>
+    <!-- Google Font for custom typography -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome CDN for using icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Linking the stylesheet -->
+    <link href='styles.css' rel='stylesheet' />
+</head>
+
+<body>
+    <!-- Main container for the stopwatch UI -->
+    <div class="container">
+        <!-- Dark mode toggle switch -->
+        <div>
+            <div class="toggle-dark">
+                <h4>Dark Theme</h4>
+                <!-- Checkbox to toggle dark theme -->
+                <input type="checkbox" id="toggle-dark" />
+                <!-- Label for checkbox, no visual content -->
+                <label for="toggle-dark"></label>
+            </div>
+        </div>
+
+        <!-- Stopwatch display and controls -->
+        <div class="wrapper">
+            <h1>S</h1> 
+            <h2></h2> 
+
+            <!-- Display for stopwatch seconds and tens (milliseconds) -->
+            <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+
+            <!-- Buttons to control the stopwatch -->
+            <div class="buttons">
+                <!-- Start button with an icon -->
+                <button id="button-start"><i class="fas fa-stopwatch"></i> Start</button>
+                <!-- Stop button with an icon -->
+                <button id="button-stop"><i class="fas fa-play-circle"></i> Stop</button>
+                <!-- Reset button with an icon -->
+                <button id="button-reset"><i class="fas fa-undo"></i> Reset</button>
+                <!-- Lap button to record laps -->
+                <button id="button-lap"><i class="fas fa-stopwatch"></i> Lap</button>
+            </div>
+        </div> 
+    </div>
+
+    <!-- Centered list to display recorded laps -->
+    <center><ul id="laps"></ul></center>
+
+    <!-- Linking the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
